@@ -1,0 +1,84 @@
+@use "../sass-use/mixins" as *;
+@use "../sass-use/sassVariables" as *;
+
+.footer {
+  z-index: 4;
+  @include setFlex(column);
+  background-color: var(--grassGreen);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.footer--container {
+  padding: 20px;
+  @include setFlex(row, space-between, center);
+  min-height: 100px;
+  padding: 20px 10;
+  grid-column: 2/3;
+  margin: 0;
+  color: rgba(249, 249, 249, 1);
+}
+
+.footer__block {
+  height: 100%;
+}
+
+.footer__paragraph {
+  font-size: var(--small);
+  margin-bottom: 16px;
+}
+
+.footer__paragraph--title {
+  text-decoration: underline;
+}
+
+.footer__paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.footer__block--facebook {
+  text-decoration: none;
+  color: var(--whitesmoke);
+  z-index: 4;
+  cursor: pointer;
+  @include setFlex(column);
+}
+
+@media (max-width: $mediumScreen) {
+  .footer {
+    padding: 15px;
+  }
+
+  .footer--container {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: $verySmallScreen) {
+  .footer--container {
+    @include setFlex(column);
+  }
+
+  .footer__block {
+    margin-bottom: 26px;
+  }
+
+  .footer__paragraph {
+    @include setFlex();
+    text-align: start;
+    margin-bottom: 26px;
+  }
+
+  .footer__facebook-title {
+    display: none;
+  }
+
+  .footer__block--facebook {
+    text-decoration: none;
+    color: var(--whitesmoke);
+    z-index: 4;
+    cursor: pointer;
+    @include setFlex(row);
+    margin-bottom: 0px;
+  }
+}

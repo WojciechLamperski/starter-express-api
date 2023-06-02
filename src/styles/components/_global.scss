@@ -1,0 +1,61 @@
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  color: var(--fontDarkGreen);
+  overflow-y: overlay;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+  margin: 0;
+}
+
+ul,
+li {
+  padding: 0px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.1;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  background-color: var(--grassGreen);
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

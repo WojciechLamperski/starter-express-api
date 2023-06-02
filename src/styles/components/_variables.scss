@@ -1,0 +1,35 @@
+:root {
+  //colors
+  --whitesmoke: whitesmoke;
+  --backgroundWhite: #ffffff;
+  --fontDarkGreen: #242c28;
+  --grassGreen: #405040;
+  --aboveCarousel: #e7ebea;
+  --aboveCarousel2: #c3c4bf;
+  --aboveCarousel3: #fdfeff;
+  //
+  --serviceBlock__icon--circleOneColor: rgb(195, 240, 201);
+  --serviceBlock__icon--circleTwoColor: rgb(206, 230, 214);
+  --serviceBlock__icon--circleThreeColor: rgb(182, 255, 206);
+  --serviceBlock__icon--circleSuccess: rgb(154, 219, 154);
+  //
+  --textWrapper__navButton--pink: rgb(105, 114, 101);
+  --textWrapper__navButton--lightGreen: rgb(0, 133, 126);
+  --textWrapper__navButton--darkGreen: rgb(64, 80, 64);
+
+  //shadows
+  --shadowOne: 0px 10px 26px 0px rgba(0, 0, 0, 0.05);
+  --shadowTwo: 1px 7px 12px 1px rgba(0, 0, 0, 0.1);
+  --shadowThree: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
+
+  //font-size
+  --small: 1rem;
+  --smallMedium: 1.125rem;
+  --medium: 1.5rem;
+  --textWrapper__textSmall--fontSize: 1.75rem;
+  --textWrapper__textLarge--fontSize: 3.5rem;
+  --serviceBlock__title--fontSize: 1.375rem;
+  --textBlock__sectionTitle--fontSize: 1.17rem;
+  --textBlock__descTitle--fontSize: 2rem;
+  --wrapper__titleError--fontSize: 2rem;
+}

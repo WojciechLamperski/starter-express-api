@@ -1,0 +1,16 @@
+//components
+@use "./components/global";
+@use "./components/page-layout";
+@use "./components/variables";
+@use "./components/header";
+@use "./components/main";
+
+//views
+@use "./views/home/home";
+@use "./views/team/team";
+@use "./views/pricing/pricing";
+@use "./views/contact/contact";
+@use "./views/gallery/gallery";
+
+//component
+@use "./components/footer";

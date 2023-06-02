@@ -1,0 +1,39 @@
+@use "../sass-use/mixins" as *;
+@use "../sass-use/sassVariables" as *;
+
+.main {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  margin-top: 74px;
+  max-width: 100%;
+  @include setFlex(column);
+  // display: grid;
+  // grid-template-columns: minmax(0, 1fr) 1170px minmax(0, 1fr);
+  width: 100%;
+  background-color: var(--whitesmoke);
+}
+
+.main__section {
+  width: 1170px;
+  @include setFlex();
+}
+
+.main__section--margins {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.main__banner {
+  width: 100%;
+}
+
+@media (max-width: $mediumScreen) {
+  .main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .main__section {
+    width: 100%;
+  }
+}

@@ -1,0 +1,53 @@
+@use "../../sass-use/mixins" as *;
+@use "../../sass-use/sassVariables" as *;
+
+.pricing__wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.table {
+  table-layout: fixed;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  padding: 0;
+  width: 100%;
+}
+
+.pricing__table--margin-bottom {
+  margin-bottom: 26px;
+}
+
+.table__caption {
+  font-size: var(--medium);
+  margin: 0.5em 0 0.75em;
+  margin-top: 0px !important;
+}
+
+.table__row {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 0.35em;
+  font-size: var(--smallMedium);
+}
+
+.table__cell {
+  padding: 0.625em;
+  text-align: center;
+}
+
+.table__cell--price {
+  text-align: end;
+  padding-right: 2.5em;
+}
+
+@media (max-width: $mediumScreen) {
+  .pricing__wrapper {
+    grid-template-columns: 100%;
+    padding: 0 20px;
+  }
+  .pricing__table:last-child {
+    margin-bottom: 0px;
+  }
+}

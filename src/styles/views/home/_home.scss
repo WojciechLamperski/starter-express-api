@@ -1,0 +1,525 @@
+@use "../../sass-use/mixins" as *;
+@use "../../sass-use/sassVariables" as *;
+
+.carousel {
+  height: 760px;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
+.carousel__slide {
+  height: 100%;
+  height: 760px;
+  object-fit: cover;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  will-change: opacity;
+  transition: 800ms opacity ease-in-out;
+
+  &::before {
+    opacity: 0;
+    content: "";
+    position: absolute;
+    top: -74px;
+    z-index: 1;
+    height: 74px;
+    width: 100vw;
+  }
+  &--1::before {
+    background-color: var(--aboveCarousel);
+  }
+  &--2::before {
+    background-color: var(--aboveCarousel2);
+  }
+  &--3::before {
+    background-color: var(--aboveCarousel3);
+  }
+}
+
+.carousel__img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  object-position: 100% 0;
+}
+
+.carousel__img--2 {
+  filter: brightness(90%);
+}
+
+.carousel__jumbotron {
+  height: 100%;
+  width: 1170px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  @include setFlex(row, flex-end, center);
+}
+
+.jumbotron__wrapper--whitesmoke {
+  color: var(--whitesmoke);
+}
+
+.jumbotron__wrapper > * {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(-100px);
+}
+
+.inAnimation > * {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+  transition: all 1s;
+}
+
+.jumbotron__wrapper {
+  top: 150;
+  right: 150;
+  @include setFlex(column, center, flex-start);
+  width: 600px;
+  height: 300px;
+}
+
+.carousel__title {
+  font-size: var(--textWrapper__textLarge--fontSize);
+  font-weight: 700;
+  margin-bottom: 10px;
+  transition-delay: 100ms;
+}
+
+.carousel__desc {
+  font-size: var(--textWrapper__textSmall--fontSize);
+  font-weight: 500;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  transition-delay: 150ms;
+}
+
+.btn {
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  color: var(--whitesmoke);
+  font-size: var(--small);
+  padding: 10px;
+  border-radius: 6px;
+  padding: 14px 22px;
+}
+
+.carousel__btn {
+  margin-left: 5px;
+  transition-delay: 200ms;
+}
+
+.carousel__btn--darkGreen {
+  background-color: var(--textWrapper__navButton--darkGreen);
+}
+
+.carousel__btn--pink {
+  background-color: var(--textWrapper__navButton--pink);
+}
+
+.carousel__btn--lightGreen {
+  background-color: var(--textWrapper__navButton--lightGreen);
+}
+
+.carousel__slide[data-active] {
+  z-index: 2;
+  opacity: 1;
+  &::before {
+    opacity: 1;
+  }
+}
+
+.carousel__nav {
+  cursor: pointer;
+  content: "";
+  @include setFlex();
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  background-color: var(--backgroundWhite);
+  z-index: 3;
+  border-radius: 6px;
+  top: 50%;
+}
+
+.carousel__nav:hover,
+.carousel__nav:focus,
+.carousel__nav:active,
+.carousel__nav {
+  border: none;
+}
+
+.carousel__nav--right {
+  right: 60px;
+}
+
+.carousel__nav--left {
+  left: 60px;
+}
+
+// If it won't work put it as inline style in ejs file
+.carousel__svg--left {
+  transform: scale(-1, 1);
+}
+
+.carousel__svg {
+  fill: var(--fontDarkGreen);
+}
+
+.carousel__overlay {
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+@media (max-width: $mediumScreen) {
+  .carousel {
+    margin-top: 0px;
+    grid-column: 1;
+    width: 100%;
+  }
+
+  .carousel__jumbotron {
+    width: 100%;
+  }
+
+  .carousel__nav--right {
+    right: 10px;
+  }
+
+  .carousel__nav--left {
+    left: 10px;
+  }
+
+  .carousel__jumbotron {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .jumbotron__wrapper {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top: 50;
+    left: 50%;
+    backdrop-filter: blur(0.5px);
+    padding: 5px 0;
+    border-radius: 20px;
+    z-index: 2;
+  }
+
+  .carousel__img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    object-position: 100% 0;
+  }
+  .carousel__img--1 {
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+  .carousel__img--3 {
+    object-fit: cover;
+    object-position: 25% 25%;
+  }
+}
+
+@media (max-width: $smallScreen) {
+  .carousel__overlay {
+    opacity: 1;
+  }
+
+  .inAnimation > * {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+
+  .carousel__nav {
+    display: none;
+  }
+  .carousel {
+    height: 660px;
+  }
+
+  .carousel__slide {
+    height: 100%;
+    height: 660px;
+  }
+}
+
+.services {
+  grid-column: 2/3;
+  @include setFlex();
+  position: relative;
+  min-height: 250px;
+  margin-bottom: 150px;
+}
+
+.services--container {
+  @include setFlex(row, space-between, none);
+  position: absolute;
+  top: -60px;
+  line-height: 2;
+}
+
+.services__card {
+  cursor: pointer;
+  z-index: 3;
+  max-width: 32%;
+  transition: all 0.6s 0.2s ease-in-out;
+  padding: 40px;
+}
+
+.card {
+  @include setFlex(column, none, none);
+  color: var(--fontDarkGreen);
+}
+
+.card--white {
+  background-color: var(--backgroundWhite);
+  border-radius: 15px;
+}
+
+.card--shadow {
+  @include setShadow(var(--shadowOne), var(--shadowTwo), var(--shadowThree));
+}
+
+.services__title {
+  font-size: var(--serviceBlock__title--fontSize);
+  text-align: center;
+  @include setFlex();
+  margin-bottom: 10px;
+  z-index: 4;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.services__desc {
+  text-align: center;
+  z-index: 4;
+  font-size: var(--small);
+}
+
+.services__top {
+  @include setFlex();
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.services__svg {
+  z-index: 4;
+  fill: var(--fontDarkGreen);
+}
+
+.services__top--circle::after,
+.services__top--circle::before {
+  display: block;
+  content: "";
+  position: absolute;
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  z-index: 3;
+  transition: all 0.4s 0.2s ease-in-out;
+}
+
+.services__top--circle1::after {
+  background-color: var(--serviceBlock__icon--circleOneColor);
+}
+.services__top--circle1::before {
+  background-color: var(--serviceBlock__icon--circleSuccess);
+  opacity: 0;
+}
+.services__top--circle2::after {
+  background-color: var(--serviceBlock__icon--circleTwoColor);
+}
+.services__top--circle2::before {
+  background-color: var(--serviceBlock__icon--circleSuccess);
+  opacity: 0;
+}
+.services__top--circle3::after {
+  background-color: var(--serviceBlock__icon--circleThreeColor);
+}
+.services__top--circle3::before {
+  background-color: var(--serviceBlock__icon--circleSuccess);
+  opacity: 0;
+}
+
+.services__card:hover {
+  transform: translateY(-40px);
+  .services__top--circle::after {
+    opacity: 0;
+  }
+  .services__top--circle::before {
+    opacity: 1;
+  }
+}
+
+@media (max-width: $mediumScreen) {
+  .services {
+    margin-top: 40px;
+    grid-column: 1;
+    position: relative;
+    margin-bottom: 50px;
+  }
+  .services--container {
+    flex-direction: column;
+    position: static;
+    justify-content: center;
+    align-items: center;
+  }
+  .services__card {
+    transition: none;
+    min-width: 90%;
+    margin-top: 20px;
+  }
+
+  .services__top--circle::after,
+  .services__top--circle::before {
+    transition: none;
+  }
+
+  .services__card:hover {
+    transform: translateY(0px);
+    .services__top--circle::after {
+      opacity: 1;
+    }
+    .services__top--circle::before {
+      opacity: 0;
+    }
+  }
+}
+
+//about us
+
+.about {
+  grid-column: 2/3;
+  @include setFlex();
+}
+
+.about--container {
+  display: flex;
+  margin-bottom: 74px;
+}
+
+.about__card {
+  width: 50%;
+}
+
+.about__top {
+  color: var(--grassGreen);
+  text-transform: uppercase;
+  display: flex;
+  font-size: var(--textBlock__sectionTitle--fontSize);
+  margin-bottom: 14px;
+}
+
+.about__title {
+  margin-bottom: 16px;
+  font-size: var(--textBlock__descTitle--fontSize);
+}
+
+.about__desc {
+  line-height: 2;
+  text-align: justify;
+  margin-right: 30px;
+  font-size: var(--small);
+}
+
+.about__img {
+  margin-left: 30px;
+  max-width: 50%;
+  border-radius: 10px;
+  object-fit: cover;
+  border: none;
+  @include setShadow(var(--shadowOne), var(--shadowTwo), var(--shadowThree));
+  transition-delay: 0ms;
+  will-change: transform;
+  will-change: opacity;
+  transition: all 0.6s linear;
+}
+
+@media (max-width: $mediumScreen) {
+  .about {
+    grid-column: 1;
+    margin-bottom: 0px;
+  }
+
+  .about--container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 34px;
+    padding: 0;
+  }
+
+  .about__card,
+  .about__img {
+    min-width: 90%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .about__img {
+    opacity: 1;
+    will-change: unset;
+    transition: none;
+    // transform: translateX(0%);
+  }
+
+  .about__top {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about__desc {
+    margin: 0;
+    margin-bottom: 20px;
+    line-height: 2;
+    text-align: justify;
+  }
+
+  .services__card:first-child {
+    margin-top: 0px;
+  }
+
+  .services {
+    grid-column: 2/3;
+    @include setFlex();
+    position: relative;
+    min-height: 250px;
+    margin-bottom: 54px;
+  }
+}

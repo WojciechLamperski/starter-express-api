@@ -1,0 +1,211 @@
+@use "../sass-use/mixins" as *;
+@use "../sass-use/sassVariables" as *;
+
+// js class for removing scroll below menu on mobile
+// it is applied to body but I put it to here since it activates when clicking on header
+.scroll-turn-off {
+  overflow: hidden;
+}
+
+.header {
+  @include setFlex();
+  background-color: var(--backgroundWhite);
+  @include setShadow(var(--shadowOne), var(--shadowThree));
+  z-index: 5;
+  width: 100vw;
+  position: fixed;
+
+  &__logo {
+    position: absolute;
+    margin: 0;
+    height: 100%;
+  }
+
+  &__menu {
+    width: 100%;
+  }
+}
+
+.container {
+  width: 1170px;
+}
+
+.header--container {
+  height: 74px;
+  padding: 20px 0;
+  @include setFlex(row, space-between, center);
+}
+
+.logo__img {
+  height: 100%;
+  padding: 12px;
+  border: 0 solid;
+  z-index: 7;
+}
+
+.menu {
+  &__list {
+    @include setFlex(row, flex-end);
+    width: 100%;
+    list-style: none;
+    font-weight: 500;
+    letter-spacing: 2px;
+    animation-delay: 0ms;
+    transition: none;
+  }
+
+  &__item {
+    padding: 7.5px;
+    cursor: pointer;
+    margin-left: 30px;
+    text-decoration: underline 3px transparent;
+    text-underline-offset: 10px;
+    transition: text-decoration-color 0.2s 0.1s ease-in-out;
+    font-size: var(--small);
+  }
+
+  &__item:hover {
+    text-decoration-color: rgb(79, 102, 74);
+  }
+
+  &__item--active {
+    text-decoration: underline 3px transparent;
+    text-underline-offset: 10px;
+    text-decoration-color: rgb(79, 102, 74);
+    transition: none;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: var(--fontDarkGreen);
+    padding: 7.5px;
+  }
+}
+
+.header__hamburger {
+  right: 32px;
+  display: none;
+}
+
+.hamburger--active {
+  z-index: 7;
+  .hamburger__line {
+    z-index: 7;
+    background-color: transparent;
+  }
+  .hamburger__line::after {
+    transform: translateY(-10px) rotate(45deg);
+  }
+  .hamburger__line::before {
+    transform: translateY(10px) rotate(-45deg);
+  }
+}
+
+.hamburger {
+  cursor: pointer;
+  min-height: 100%;
+  aspect-ratio: 1 / 1.4;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  background-color: transparent;
+  border: 0px solid;
+
+  &__line {
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    @include hamburgerLine;
+    transition: background-color 0.1s 0.2s ease-in-out;
+  }
+
+  &__line::before,
+  &__line::after {
+    content: "";
+    left: 0px;
+    @include hamburgerLine;
+    transition: transform 0.2s 0.2s ease-in-out;
+  }
+
+  &__line::after {
+    top: 10px;
+  }
+
+  &__line::before {
+    top: -10px;
+  }
+}
+
+@media (max-width: $mediumScreen) {
+  .header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .header--container {
+    grid-column: 1;
+  }
+
+  .menu {
+    &__list {
+      @include setFlex(row, flex-end);
+      width: 100%;
+      transition: all 10s 10s ease-in-out;
+    }
+    &__item {
+      margin-left: 30px;
+      text-decoration: none;
+      transition: none;
+    }
+
+    &__item:hover {
+      text-decoration-color: inherit;
+    }
+  }
+}
+
+@media (max-width: $smallScreen) {
+  .header__menu {
+    height: 100vh;
+    width: 100vw;
+    transform: translateX(100%);
+    transition: transform 0.4s 0.2s ease-in-out;
+    z-index: 0;
+    position: absolute;
+    display: block;
+    top: 0px;
+    right: 0px;
+    background-color: var(--backgroundWhite);
+    padding-top: 110px;
+    padding: 0px;
+    margin-top: 0px;
+  }
+
+  .menu {
+    &__list {
+      height: 100vh;
+      @include setFlex(column);
+      width: 100%;
+      transition: all 10s 10s ease-in-out;
+    }
+    &__item {
+      display: inline-block;
+      text-align: center;
+      margin: 20px 0px;
+      padding: 10px;
+      font-size: var(--smallMedium);
+    }
+  }
+
+  .header__hamburger {
+    display: inline-block;
+  }
+
+  .menu--active {
+    transform: translateX(0);
+    z-index: 6;
+  }
+}

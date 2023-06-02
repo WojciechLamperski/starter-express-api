@@ -1,0 +1,19 @@
+@use "../../sass-use/mixins" as *;
+@use "../../sass-use/sassVariables" as *;
+
+.wrapper {
+  margin-top: 30px;
+  grid-column: 2/3;
+  @include setFlex();
+
+  .wrapper__image {
+    width: 100%;
+    border-radius: 15px;
+  }
+  .wrapper__textWrapper {
+    width: 100%;
+    padding: 15px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
