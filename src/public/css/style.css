@@ -996,6 +996,9 @@ body {
     grid-template-columns: 100%;
     padding: 0 20px;
   }
+  .pricing__table--margin-mobile {
+    margin-bottom: 26px;
+  }
   .pricing__table:last-child {
     margin-bottom: 0px;
   }
