@@ -58,7 +58,6 @@
     cursor: pointer;
     margin-left: 30px;
     text-decoration: underline 3px transparent;
-    text-underline-offset: 10px;
     transition: text-decoration-color 0.2s 0.1s ease-in-out;
     font-size: var(--small);
   }
@@ -68,8 +67,6 @@
   }
 
   &__item--active {
-    text-decoration: underline 3px transparent;
-    text-underline-offset: 10px;
     text-decoration-color: rgb(79, 102, 74);
     transition: none;
   }
@@ -152,7 +149,7 @@
     &__list {
       @include setFlex(row, flex-end);
       width: 100%;
-      transition: all 10s 10s ease-in-out;
+      transition: transform 10s 10s ease-in-out;
     }
     &__item {
       margin-left: 30px;
@@ -188,7 +185,7 @@
       height: 100vh;
       @include setFlex(column);
       width: 100%;
-      transition: all 10s 10s ease-in-out;
+      transition: transform 10s 10s ease-in-out;
     }
     &__item {
       display: inline-block;
