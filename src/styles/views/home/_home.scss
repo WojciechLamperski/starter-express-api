@@ -1,13 +1,6 @@
 @use "../../sass-use/mixins" as *;
 @use "../../sass-use/sassVariables" as *;
 
-.carousel {
-  height: 760px;
-  margin: 0px;
-  padding: 0px;
-  position: relative;
-}
-
 .carousel__slide {
   height: 100%;
   height: 760px;
@@ -16,8 +9,6 @@
   padding: 0px;
   position: absolute;
   inset: 0;
-  opacity: 0;
-  will-change: opacity;
   transition: 800ms opacity ease-in-out;
 
   &::before {
@@ -64,18 +55,24 @@
   margin-left: auto;
   margin-right: auto;
   @include setFlex(row, flex-end, center);
+  z-index: 1;
 }
 
 .jumbotron__wrapper--whitesmoke {
   color: var(--whitesmoke);
 }
 
+.jumbotron__wrapper,
 .jumbotron__wrapper > * {
   opacity: 0;
+}
+
+.jumbotron__wrapper > * {
   filter: blur(5px);
   transform: translateY(-100px);
 }
 
+.inAnimation,
 .inAnimation > * {
   opacity: 1;
   filter: blur(0);
@@ -271,26 +268,16 @@
 }
 
 .services {
-  grid-column: 2/3;
   @include setFlex();
-  position: relative;
-  min-height: 250px;
-  margin-bottom: 150px;
 }
 
 .services--container {
   @include setFlex(row, space-between, none);
-  position: absolute;
-  top: -60px;
-  line-height: 2;
 }
 
 .services__card {
   cursor: pointer;
-  z-index: 3;
-  max-width: 32%;
-  transition: all 0.6s 0.2s ease-in-out;
-  padding: 40px;
+  transition: transform 0.6s 0.2s ease-in-out;
 }
 
 .card {

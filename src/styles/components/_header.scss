@@ -13,7 +13,6 @@
   @include setShadow(var(--shadowOne), var(--shadowThree));
   z-index: 5;
   width: 100vw;
-  position: fixed;
 
   &__logo {
     position: absolute;
