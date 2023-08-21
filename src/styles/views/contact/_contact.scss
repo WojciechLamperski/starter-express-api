@@ -1,5 +1,5 @@
-@use "../../sass-use/mixins" as *;
-@use "../../sass-use/sassVariables" as *;
+@use "../../utils/mixins" as *;
+@use "../../utils/media-queries" as *;
 
 .contact__wrapper {
   @include setFlex(column);

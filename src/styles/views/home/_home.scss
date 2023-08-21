@@ -1,5 +1,5 @@
-@use "../../sass-use/mixins" as *;
-@use "../../sass-use/sassVariables" as *;
+@use "../../utils/mixins" as *;
+@use "../../utils/media-queries" as *;
 
 .carousel__slide {
   height: 100%;
@@ -413,16 +413,16 @@
   @include setFlex();
 }
 
-.about--container {
+.card__container {
   display: flex;
   margin-bottom: 74px;
 }
 
-.about__card {
+.card--horizontal {
   width: 50%;
 }
 
-.about__top {
+.card__top {
   color: var(--grassGreen);
   text-transform: uppercase;
   display: flex;
@@ -430,19 +430,19 @@
   margin-bottom: 14px;
 }
 
-.about__title {
+.card__title {
   margin-bottom: 16px;
   font-size: var(--textBlock__descTitle--fontSize);
 }
 
-.about__desc {
+.card__desc {
   line-height: 2;
   text-align: justify;
   margin-right: 30px;
   font-size: var(--small);
 }
 
-.about__img {
+.card__img {
   margin-left: 30px;
   max-width: 50%;
   border-radius: 10px;
@@ -460,7 +460,7 @@
     margin-bottom: 0px;
   }
 
-  .about--container {
+  .card__container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -469,28 +469,28 @@
     padding: 0;
   }
 
-  .about__card,
-  .about__img {
+  .card--horizontal,
+  .card__img {
     min-width: 90%;
     margin: 0;
     padding: 0;
   }
 
-  .about__img {
+  .card__img {
     opacity: 1;
     will-change: unset;
     transition: none;
     // transform: translateX(0%);
   }
 
-  .about__top {
+  .card__top {
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .about__desc {
+  .card__desc {
     margin: 0;
     margin-bottom: 20px;
     line-height: 2;

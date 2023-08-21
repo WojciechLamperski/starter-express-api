@@ -31,6 +31,10 @@ app.get("/kontakt", (req, res) => {
   res.render("assembled/contact", { page: "contact" });
 });
 
+app.get("/rehabilitacje", (req, res) => {
+  res.render("assembled/rehab", { page: "rehab" });
+});
+
 app.get("*", (req, res) => {
   res.status(404).redirect("/", { page: "home" });
 });

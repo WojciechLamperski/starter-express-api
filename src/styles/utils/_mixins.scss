@@ -1,0 +1,28 @@
+@mixin setFlex(
+  $flex-direction: row,
+  $justify-content: center,
+  $align-items: center
+) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin setShadow(
+  $shadow1: var(--shadowOne),
+  $shadow2: var(--shadowTwo),
+  $shadow3: var(--shadowThree)
+) {
+  box-shadow: $shadow1, $shadow2, $shadow3;
+}
+
+@mixin hamburgerLine {
+  background-color: var(--fontDarkGreen);
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  border-radius: 3px;
+  display: block;
+  user-select: none;
+}

@@ -11,20 +11,26 @@
 
           <ul class="menu__list">
             <li <% if (locals.page==="treatments") { %> class="menu__item  menu__item--active" <% } else { %> class="menu__item" <% } %>>
-              <a class="menu__link" href="/zabiegi">
+              <a href="/zabiegi" class="menu__link">
                 Zabiegi
               </a>
             </li>
 
             <li <% if (page==="pricing") { %> class="menu__item  menu__item--active" <% } else { %> class="menu__item" <% } %>>
-              <a class="menu__link" href="/cennik">
+              <a href="/cennik" class="menu__link">
                 Cennik
+              </a>
+            </li>
+
+            <li <% if (page==="rehab") { %> class="menu__item  menu__item--active" <% } else { %> class="menu__item" <% } %>>
+              <a href="/rehabilitacje" class="menu__link">
+                Rehabilitacje
               </a>
             </li>
 
 
             <li <% if (page==="team") { %> class="menu__item  menu__item--active" <% } else { %> class="menu__item" <% } %>>
-              <a class="menu__link" href="/zespol">
+              <a href="/zespol" class="menu__link">
                 Nasz Zespół
               </a>
             </li>
@@ -32,14 +38,14 @@
 
 
             <li <% if (page==="gallery") { %> class="menu__item  menu__item--active" <% } else { %> class="menu__item" <% } %>>
-              <a class="menu__link" href="/galeria">
+              <a href="/galeria" class="menu__link">
                 Galeria
               </a>
             </li>
 
 
             <li <% if (page==="contact") { %> class="menu__item  menu__item--active" <% } else { %> class="menu__item" <% } %>>
-              <a class="menu__link" href="/kontakt">
+              <a href="/kontakt" class="menu__link">
                 Kontakt
               </a>
             </li>

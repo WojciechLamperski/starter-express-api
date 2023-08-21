@@ -124,7 +124,6 @@ body {
   width: 100vw;
 }
 .header__logo {
-  position: absolute;
   margin: 0;
   height: 100%;
 }
@@ -150,6 +149,8 @@ body {
   padding: 12px;
   border: 0 solid;
   z-index: 7;
+  position: absolute;
+  top: 0;
 }
 
 .menu__list {
@@ -207,7 +208,7 @@ body {
 .hamburger {
   cursor: pointer;
   min-height: 100%;
-  aspect-ratio: 1/1.4;
+  width: 50px;
   margin: 0px;
   padding: 0px;
   position: absolute;
@@ -272,8 +273,6 @@ body {
   .menu__item:hover {
     text-decoration-color: inherit;
   }
-}
-@media (max-width: 961px) {
   .header__menu {
     height: 100vh;
     width: 100vw;
@@ -778,16 +777,16 @@ body {
   align-items: center;
 }
 
-.about--container {
+.card__container {
   display: flex;
   margin-bottom: 74px;
 }
 
-.about__card {
+.card--horizontal {
   width: 50%;
 }
 
-.about__top {
+.card__top {
   color: var(--grassGreen);
   text-transform: uppercase;
   display: flex;
@@ -795,19 +794,19 @@ body {
   margin-bottom: 14px;
 }
 
-.about__title {
+.card__title {
   margin-bottom: 16px;
   font-size: var(--textBlock__descTitle--fontSize);
 }
 
-.about__desc {
+.card__desc {
   line-height: 2;
   text-align: justify;
   margin-right: 30px;
   font-size: var(--small);
 }
 
-.about__img {
+.card__img {
   margin-left: 30px;
   max-width: 50%;
   border-radius: 10px;
@@ -824,7 +823,7 @@ body {
     grid-column: 1;
     margin-bottom: 0px;
   }
-  .about--container {
+  .card__container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -832,24 +831,24 @@ body {
     margin-bottom: 34px;
     padding: 0;
   }
-  .about__card,
-  .about__img {
+  .card--horizontal,
+  .card__img {
     min-width: 90%;
     margin: 0;
     padding: 0;
   }
-  .about__img {
+  .card__img {
     opacity: 1;
     will-change: unset;
     transition: none;
   }
-  .about__top {
+  .card__top {
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .about__desc {
+  .card__desc {
     margin: 0;
     margin-bottom: 20px;
     line-height: 2;
@@ -1297,6 +1296,25 @@ body {
     opacity: 0;
   }
 }
+.treatments {
+  margin-bottom: 40px;
+  margin-top: -70px;
+}
+
+.services__title--treatments {
+  padding-left: 10px;
+}
+
+@media (max-width: 1170px) {
+  .treatments {
+    margin-top: -30px;
+    width: 90%;
+  }
+}
+.heading {
+  padding: 40px;
+}
+
 .footer {
   z-index: 4;
   display: flex;

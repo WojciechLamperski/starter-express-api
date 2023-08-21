@@ -1,5 +1,5 @@
-@use "../../sass-use/mixins" as *;
-@use "../../sass-use/sassVariables" as *;
+@use "../../utils/mixins" as *;
+@use "../../utils/media-queries" as *;
 
 .wrapper {
   margin-top: 30px;
